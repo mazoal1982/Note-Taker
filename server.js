@@ -10,7 +10,7 @@ const writeFileAsync = util.promisify(fs.writeFile);
 
 // Setting Up Server
 const app = express();
-const PORT = process.env.PORT | 3001;
+const PORT = process.env.PORT || 3001;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -78,6 +78,6 @@ res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
 // Listening
-app. listen(PORT, function() {
-console.log("App listening on PORT " + PORT);
-})
+app.listen(PORT, () => {
+  console.log(`App listening on PORT ${PORT}`);
+});
